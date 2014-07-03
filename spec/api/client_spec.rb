@@ -265,7 +265,7 @@ describe "RSolr::Client" do
         :data => "data",
         :headers => {}
       )
-      [/fq=0/, /fq=1/, /q=test/, /wt=ruby/].each do |pattern|
+      [/fq=0/, /fq=1/, /q=test/, /wt=json/].each do |pattern|
         expect(result[:query]).to match pattern
       end
       expect(result[:data]).to eq("data")
@@ -278,7 +278,7 @@ describe "RSolr::Client" do
         :data => {:q=>'test', :fq=>[0,1]},
         :headers => {}
       )
-      expect(result[:query]).to eq("wt=ruby")
+      expect(result[:query]).to eq("wt=json")
       [/fq=0/, /fq=1/, /q=test/].each do |pattern|
         expect(result[:data]).to match pattern
       end
